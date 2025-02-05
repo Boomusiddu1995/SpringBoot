@@ -1,0 +1,149 @@
+#spring:
+#  application:
+#    name: api-gateway
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: order-service
+#          uri: lb://ORDER-SERVICE
+#          predicates:
+#            - Path=/order/**
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: order-service
+#                fallbackUri: forward:/orderFallback
+#        - id: payment-service
+#          uri: lb://PAYMENT-SERVICE
+#          predicates:
+#             - Path=/payment/**
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: payment-service
+#                fallbackUri: forward:/paymentFallback
+#
+#server:
+#  port: 8765
+#
+#
+#resilience4j:
+#  circuitbreaker:
+#    configs:
+#      default:
+#        slidingWindowSize: 10
+#        failureRateThreshold: 50
+#        waitDurationInOpenState: 5s
+#        permittedNumberOfCallsInHalfOpenState: 3
+#        timeoutDuration: 3s
+#  retry:
+#    configs:
+#      default:
+#        maxAttempts: 3
+#        waitDuration: 2s
+#
+###microservice:
+###  payment-service:
+###    endpoints:
+###      endpoint:
+###        uri: http://PAYMENT-SERVICE/payment/doPayment
+###  order-service:
+###    endpoints:
+###      endpoint:
+###        uri: http://ORDER-SERVICE/order/bookOrder
+#
+#
+##spring:
+##  application:
+##    name: api-gateway
+##  cloud:
+##    gateway:
+##      routes:
+##        - id: order-service
+##          uri: lb://ORDER-SERVICE
+##          predicates:
+##            - Path=/order/**
+##          filters:
+##            - name: CircuitBreaker
+##              args:
+##                name: order-service
+##                fallbackUri: forward:/orderFallback
+##        - id: payment-service
+##          uri: lb://PAYMENT-SERVICE
+##          predicates:
+##            - Path=/payment/**
+##          filters:
+##            - name: CircuitBreaker
+##              args:
+##                name: payment-service
+##                fallbackUri: forward:/paymentFallback
+##
+##server:
+##  port: 8765
+##
+##resilience4j:
+##  circuitbreaker:
+##    configs:
+##      default:
+##        slidingWindowSize: 10
+##        failureRateThreshold: 50
+##        waitDurationInOpenState: 5s
+##        permittedNumberOfCallsInHalfOpenState: 3
+##        timeoutDuration: 3s
+##  retry:
+##    configs:
+##      default:
+##        maxAttempts: 3
+##        waitDuration: 2s
+##
+##management:
+##  endpoints:
+##    web:
+##      exposure:
+##        include: "*"
+##  metrics:
+##    export:
+##      simple:
+##        enabled: true
+#spring:
+#  application:
+#    name: api-gateway
+#  cloud:
+#    gateway:
+#      routes:
+#        - id: order-service
+#          uri: lb://ORDER-SERVICE
+#          predicates:
+#            - Path=/order/**
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: order-service
+#                fallbackUri: forward:/orderFallback
+#        - id: payment-service
+#          uri: lb://PAYMENT-SERVICE
+#          predicates:
+#            - Path=/payment/**
+#          filters:
+#            - name: CircuitBreaker
+#              args:
+#                name: payment-service
+#                fallbackUri: forward:/paymentFallback
+#
+#server:
+#  port: 8765
+#
+#resilience4j:
+#  circuitbreaker:
+#    configs:
+#      default:
+#        slidingWindowSize: 10
+#        failureRateThreshold: 50
+#        waitDurationInOpenState: 5s
+#        permittedNumberOfCallsInHalfOpenState: 3
+#        timeoutDuration: 3s
+#  retry:
+#    configs:
+#      default:
+#        maxAttempts: 3
+#        waitDuration: 2s
